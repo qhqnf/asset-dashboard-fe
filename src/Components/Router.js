@@ -8,6 +8,8 @@ import {
 import Header from "./Header";
 import Portfolio from "./Portfolio";
 import HomeContainer from "../Routes/Home/index";
+import SignIn from "../Routes/SignIn";
+import SignUp from "../Routes/SignUp";
 
 export default () => {
   return (
@@ -15,6 +17,8 @@ export default () => {
       <Header />
       <Switch>
         <Route path="/" exact component={HomeContainer} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={SignUp} />
         <Redirect from="*" to="/" />
       </Switch>
     </Router>

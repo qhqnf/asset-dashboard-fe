@@ -1,8 +1,16 @@
+import api from "../api";
+
 // Action type
 const LOGIN = "LOGIN";
 const LOGOUT = "LOGOUT";
 
-export const login = () => ({ type: LOGIN });
+export const userLogin = (id, token) => ({
+  type: LOGIN,
+  payload: {
+    id,
+    token,
+  },
+});
 export const logout = () => ({ type: LOGOUT });
 
 // Initial state
@@ -31,3 +39,16 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+/* export const userLogin = (form) => async (dispatch) => {
+  try {
+    const {
+      data: { id, token },
+    } = await api.login(form);
+    if (id && token) {
+      dispatch();
+    }
+  } catch (e) {
+    alert("Wrong username or password");
+  }
+}; */

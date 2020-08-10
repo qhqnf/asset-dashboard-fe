@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
@@ -36,18 +37,31 @@ const SLink = styled(Link)`
   justify-content: center;
 `;
 
-export default withRouter(({ location: { pathname } }) => (
-  <Header>
-    <List>
-      <Item current={pathname === "/"}>
-        <SLink to="/">Home</SLink>
-      </Item>
-      <Item current={pathname === "/login"}>
-        <SLink to="/login">Login</SLink>
-      </Item>
-      <Item current={pathname === "/join"}>
-        <SLink to="/join">Join</SLink>
-      </Item>
-    </List>
-  </Header>
-));
+const Navigation = ({ location: { pathname } }) => {
+  const { isLoggedIn } = useSelector((state) => state.userReducer);
+  return (
+    <Header>
+      <List>
+        <Item current={pathname === "/"}>
+          <SLink to="/">{isLoggedIn ? "dash" : "Hi"}</SLink>
+        </Item>
+        {isLoggedIn ? (
+          <Item current={pathname === "/logout"}>
+            <SLink to="/logout">Log out</SLink>
+          </Item>
+        ) : (
+          <>
+            <Item current={pathname === "/singin"}>
+              <SLink to="/signin">Sign in</SLink>
+            </Item>
+            <Item current={pathname === "/singup"}>
+              <SLink to="signup">Sign Up</SLink>
+            </Item>
+          </>
+        )}
+      </List>
+    </Header>
+  );
+};
+
+export default withRouter(Navigation);
