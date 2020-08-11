@@ -1,5 +1,3 @@
-import api from "../api";
-
 // Action type
 const LOGIN = "LOGIN";
 const LOGOUT = "LOGOUT";

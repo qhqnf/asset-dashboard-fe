@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import Input from "../Components/Input";
@@ -20,23 +21,34 @@ const FormContainer = styled.form`
   align-items: center;
 `;
 
-export default () => {
+export default (props) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const isFormValid = () => {
+    if (username === "" || password === "") {
+      alert("All fields are required.");
+      return false;
+    } else {
+      return true;
+    }
+  };
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const {
-        data: { id, token },
-      } = await api.login({
-        username: username,
-        password: password,
-      });
-      console.log(id, token);
-      dispatch(userLogin(id, token));
-    } catch (e) {
-      console.log(e);
+    if (isFormValid()) {
+      e.preventDefault();
+      try {
+        const {
+          data: { id, token },
+        } = await api.login({
+          username: username,
+          password: password,
+        });
+        dispatch(userLogin(id, token));
+        history.push("/");
+      } catch (e) {
+        alert("Wrong username or password");
+      }
     }
   };
   return (

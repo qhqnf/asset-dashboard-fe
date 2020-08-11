@@ -43,7 +43,7 @@ const Navigation = ({ location: { pathname } }) => {
     <Header>
       <List>
         <Item current={pathname === "/"}>
-          <SLink to="/">{isLoggedIn ? "dash" : "Hi"}</SLink>
+          <SLink to="/">Home</SLink>
         </Item>
         {isLoggedIn ? (
           <Item current={pathname === "/logout"}>
