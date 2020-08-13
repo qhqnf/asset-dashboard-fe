@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../api";
 
-export default () => {
+export default (data) => {
   const [isReady, setIsReady] = useState(false);
   useEffect((value) => {
     loadAsset();

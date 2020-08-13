@@ -1,6 +1,7 @@
 // Action type
 const LOGIN = "LOGIN";
 const LOGOUT = "LOGOUT";
+const SETASSET = "SETASSET";
 
 export const userLogin = (id, token) => ({
   type: LOGIN,
@@ -9,7 +10,13 @@ export const userLogin = (id, token) => ({
     token,
   },
 });
+
 export const logout = () => ({ type: LOGOUT });
+
+export const setAsset = (asset) => ({
+  type: SETASSET,
+  payload: { ...asset },
+});
 
 // Initial state
 const initialState = {
@@ -33,20 +40,12 @@ export default (state = initialState, action) => {
         id: null,
         token: null,
       };
+    case SETASSET:
+      return {
+        ...state,
+        asset: action.payload,
+      };
     default:
       return state;
   }
 };
-
-/* export const userLogin = (form) => async (dispatch) => {
-  try {
-    const {
-      data: { id, token },
-    } = await api.login(form);
-    if (id && token) {
-      dispatch();
-    }
-  } catch (e) {
-    alert("Wrong username or password");
-  }
-}; */

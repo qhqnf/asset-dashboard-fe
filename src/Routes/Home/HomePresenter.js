@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import Button from "../../Components/Btn";
 
@@ -23,17 +22,19 @@ const Span = styled.span`
   font-size: 28px;
 `;
 
-const HomePresenter = ({ isLoggedIn }) => {
+const HomePresenter = ({ isLoggedIn, toSignIn, toSignUp, toDashBoard }) => {
   return (
     <>
       <Container>
         <Span>{isLoggedIn ? "Hi" : "Welcome"}</Span>
         {isLoggedIn ? (
-          <Button>Go to Dashboard</Button>
+          <BtnContainer>
+            <Button onClick={toDashBoard}>Go to Dashboard</Button>
+          </BtnContainer>
         ) : (
           <BtnContainer>
-            <Button>Log in</Button>
-            <Button>Sign in</Button>
+            <Button onClick={toSignIn}>Sign in</Button>
+            <Button onClick={toSignUp}>Sign Up</Button>
           </BtnContainer>
         )}
       </Container>

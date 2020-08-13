@@ -19,5 +19,5 @@ export default {
   getStockCode: () => callApi("get", "/stocks/"),
   createAccount: (form) => callApi("post", "/users/", form),
   login: (form) => callApi("post", "/users/login/", form),
-  asset: (id, token) => callApi("get", `/users/${id}/asset`, null, token),
+  loadAsset: (id, token) => callApi("get", `/users/${id}/asset/`, null, token),
 };

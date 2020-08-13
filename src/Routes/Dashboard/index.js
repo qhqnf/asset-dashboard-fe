@@ -1,6 +1,17 @@
-import React from "react";
+import { connect } from "react-redux";
+import { setAsset } from "../../redux/userReducer";
 import DashboardContainer from "./DashboardContainer";
 
-const Dashboard = () => <DashboardContainer />;
+const mapStateToProps = (state) => ({
+  id: state.userReducer.id,
+  token: state.userReducer.token,
+  asset: state.userReducer.asset,
+});
 
-export default Dashboard;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setAsset: (asset) => dispatch(setAsset(asset)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardContainer);
