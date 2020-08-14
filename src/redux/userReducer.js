@@ -15,7 +15,7 @@ export const logout = () => ({ type: LOGOUT });
 
 export const setAsset = (asset) => ({
   type: SETASSET,
-  payload: { ...asset },
+  payload: asset,
 });
 
 // Initial state
@@ -39,6 +39,7 @@ export default (state = initialState, action) => {
         isLoggedIn: false,
         id: null,
         token: null,
+        asset: null,
       };
     case SETASSET:
       return {

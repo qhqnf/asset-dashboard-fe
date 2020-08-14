@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Loader from "../../Components/Loader";
+import WeightGraph from "../../Components/WeightGraph";
 
 const Container = styled.div`
   height: 100vh;
@@ -20,7 +21,11 @@ const YieldContainer = styled.div`
   background-color: #ff5a5f;
 `;
 
-const DashboardPresenter = ({ isLoading }) => {
+const GraphContainer = styled.div`
+  padding: 20px;
+`;
+
+const DashboardPresenter = ({ isLoading, asset }) => {
   return (
     <>
       {isLoading ? (
@@ -30,6 +35,9 @@ const DashboardPresenter = ({ isLoading }) => {
           <YieldContainer>
             <span>20%</span>
           </YieldContainer>
+          <GraphContainer>
+            <WeightGraph asset={asset} />
+          </GraphContainer>
         </Container>
       )}
     </>
