@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Loader from "../../Components/Loader";
 import WeightGraph from "../../Components/WeightGraph";
+import PortfolioDetail from "../../Components/PortfolioDetail";
 
 const Container = styled.div`
   height: 100vh;
@@ -13,8 +14,8 @@ const Container = styled.div`
 
 const YieldContainer = styled.div`
   width: 60%;
-  height: 50px;
-  border-radius: 20px;
+  height: 60px;
+  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +23,11 @@ const YieldContainer = styled.div`
 `;
 
 const GraphContainer = styled.div`
+  width: 80%;
+  height: 500px;
   padding: 20px;
+  display: flex;
+  justify-content: space-around;
 `;
 
 const DashboardPresenter = ({ isLoading, asset }) => {
@@ -37,6 +42,7 @@ const DashboardPresenter = ({ isLoading, asset }) => {
           </YieldContainer>
           <GraphContainer>
             <WeightGraph asset={asset} />
+            <PortfolioDetail asset={asset} />
           </GraphContainer>
         </Container>
       )}

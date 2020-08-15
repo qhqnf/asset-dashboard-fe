@@ -2,12 +2,12 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 
 const WeightGraph = ({ asset }) => {
-  const code = [];
+  const stock = [];
   const total = [];
   let sum = 0;
-  asset.forEach((stock) => {
-    code.push(stock.stock);
-    total.push(stock.total_quantity * stock.avg_price);
+  asset.forEach((item) => {
+    stock.push(item.name);
+    total.push(item.total_quantity * item.avg_price);
   });
   total.forEach((item) => {
     sum += item;
@@ -16,7 +16,7 @@ const WeightGraph = ({ asset }) => {
     return (item / sum).toFixed(3) * 100;
   });
   const data = {
-    labels: code,
+    labels: stock,
     datasets: [
       {
         data: weight,
@@ -26,6 +26,8 @@ const WeightGraph = ({ asset }) => {
     ],
   };
   const options = {
+    maintainAspectRatio: true,
+    responsive: false,
     tooltips: {
       callbacks: {
         label: (tooltipItem, data) => {
@@ -41,7 +43,7 @@ const WeightGraph = ({ asset }) => {
       },
     },
   };
-  return <Pie data={data} width={500} height={500} options={options} />;
+  return <Pie data={data} width={400} height={400} options={options} />;
 };
 
 export default WeightGraph;
