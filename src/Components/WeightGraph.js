@@ -7,13 +7,13 @@ const WeightGraph = ({ asset }) => {
   let sum = 0;
   asset.forEach((item) => {
     stock.push(item.name);
-    total.push(item.total_quantity * item.avg_price);
+    total.push(item.total_quantity * parseInt(item.price));
   });
   total.forEach((item) => {
     sum += item;
   });
   const weight = total.map((item) => {
-    return (item / sum).toFixed(3) * 100;
+    return ((item / sum) * 100).toFixed(1);
   });
   const data = {
     labels: stock,

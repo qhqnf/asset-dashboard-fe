@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Loader from "../../Components/Loader";
 import WeightGraph from "../../Components/WeightGraph";
 import PortfolioDetail from "../../Components/PortfolioDetail";
+import DashboardHeader from "../../Components/DashboardHeader";
+import Asset from "../../Components/Asset";
 
 const Container = styled.div`
   height: 100vh;
@@ -12,20 +14,16 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const YieldContainer = styled.div`
-  width: 60%;
-  height: 60px;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ff5a5f;
-`;
-
 const GraphContainer = styled.div`
   width: 80%;
   height: 500px;
   padding: 20px;
+  display: flex;
+  justify-content: space-around;
+`;
+
+const AssetContainer = styled.div`
+  width: 80%;
   display: flex;
   justify-content: space-around;
 `;
@@ -37,13 +35,14 @@ const DashboardPresenter = ({ isLoading, asset }) => {
         <Loader />
       ) : (
         <Container>
-          <YieldContainer>
-            <span>20%</span>
-          </YieldContainer>
+          <DashboardHeader asset={asset} />
           <GraphContainer>
             <WeightGraph asset={asset} />
             <PortfolioDetail asset={asset} />
           </GraphContainer>
+          <AssetContainer>
+            <Asset asset={asset} />
+          </AssetContainer>
         </Container>
       )}
     </>
