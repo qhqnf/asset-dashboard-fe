@@ -67,7 +67,7 @@ const PortfolioDetail = ({ asset }) => {
         <Cell>Current price</Cell>
         <Cell>Yield</Cell>
       </Item>
-      {asset.slice(1, 6).map((stock) => {
+      {asset.slice(0, 6).map((stock) => {
         return <PortfolioComponent stock={stock} key={stock.stock} />;
       })}
       <PortfolioTotal asset={asset} />

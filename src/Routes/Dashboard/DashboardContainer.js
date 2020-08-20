@@ -14,7 +14,7 @@ const DashboardContainer = ({ id, token, setAsset, asset }) => {
     }
   };
   useEffect(() => {
-    getAsset(id, token);
+    /*     getAsset(id, token); */
   }, []);
   return <DashboardPresenter isLoading={isLoading} asset={asset} />;
 };
