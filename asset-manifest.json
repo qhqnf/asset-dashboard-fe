@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/asset-dashboard-fe/static/js/main.df04a987.chunk.js",
-    "main.js.map": "/asset-dashboard-fe/static/js/main.df04a987.chunk.js.map",
+    "main.js": "/asset-dashboard-fe/static/js/main.61a76595.chunk.js",
+    "main.js.map": "/asset-dashboard-fe/static/js/main.61a76595.chunk.js.map",
     "runtime-main.js": "/asset-dashboard-fe/static/js/runtime-main.99e829df.js",
     "runtime-main.js.map": "/asset-dashboard-fe/static/js/runtime-main.99e829df.js.map",
     "static/js/2.07705828.chunk.js": "/asset-dashboard-fe/static/js/2.07705828.chunk.js",
     "static/js/2.07705828.chunk.js.map": "/asset-dashboard-fe/static/js/2.07705828.chunk.js.map",
     "index.html": "/asset-dashboard-fe/index.html",
-    "precache-manifest.f9d9128b6256fc5e32a624da9c92ac0f.js": "/asset-dashboard-fe/precache-manifest.f9d9128b6256fc5e32a624da9c92ac0f.js",
+    "precache-manifest.804d20363dbbfffa453af199cec9e845.js": "/asset-dashboard-fe/precache-manifest.804d20363dbbfffa453af199cec9e845.js",
     "service-worker.js": "/asset-dashboard-fe/service-worker.js",
     "static/js/2.07705828.chunk.js.LICENSE.txt": "/asset-dashboard-fe/static/js/2.07705828.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.99e829df.js",
     "static/js/2.07705828.chunk.js",
-    "static/js/main.df04a987.chunk.js"
+    "static/js/main.61a76595.chunk.js"
   ]
 }
