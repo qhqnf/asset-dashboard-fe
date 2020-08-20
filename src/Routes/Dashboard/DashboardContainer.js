@@ -3,7 +3,11 @@ import DashboardPresenter from "./DashboardPresenter";
 import api from "../../api";
 
 const DashboardContainer = ({ id, token, setAsset, asset }) => {
+  // for github deploy
+  const [isLoading, setIsLoading] = useState(false);
+  /*
   const [isLoading, setIsLoading] = useState(true);
+  */
   const getAsset = async (id, token) => {
     try {
       const { data } = await api.loadAsset(id, token);

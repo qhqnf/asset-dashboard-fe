@@ -20,7 +20,11 @@ export const setAsset = (asset) => ({
 
 // Initial state
 const initialState = {
+  // for github deploy
   isLoggedIn: true,
+  /*
+  isLoggedIn: false,
+  */
   id: null,
   token: null,
   asset: [
